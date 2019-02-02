@@ -1,0 +1,8 @@
+<form action="vokabeltest" method="post">
+	{% csrf_token %}
+	{% for i in kapitelnummern %}
+		<input type="checkbox" name="Kapitel {{i}}"/>
+		Kapitel: {{i}} <br/>
+	{% endfor %}
+	<input type="submit" value="senden"/>
+</form>
