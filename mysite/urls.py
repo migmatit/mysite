@@ -19,5 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
 	#der Aufruf wird an die url.py im Ordner von marcador weitergeleitety
-	path('marcador/', include('marcador.urls')),
+	path('', include('marcador.urls')),
 ]
