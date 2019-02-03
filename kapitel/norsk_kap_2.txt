@@ -1,24 +1,24 @@
-hjemmeside : homepage
+ï»¿hjemmeside : homepage
 sjarm : Charme
 midt : mitten
-gågate : Fußgängerzone
-naerhet : Nähe
+gÃ¥gate : FuÃŸgÃ¤ngerzone
+naerhet : NÃ¤he
 tog : Zug
 buss : Bus
 restaurant : Restaurant
-spesialitet : Spezialität
+spesialitet : SpezialitÃ¤t
 region : Region
 alle : alle
 rettighet : Schankerlaubnis
-shoppingmulighet : Einkaufsmöglichkeit
+shoppingmulighet : EinkaufsmÃ¶glichkeit
 ligge : liegen
 rett : direkt, gerade
-utenfor : außerhalb
-dør : Tür
+utenfor : auÃŸerhalb
+dÃ¸r : TÃ¼r
 mange : viele
-severdighet : Sehenswürdigkeiten
-aktivitet : Aktivität
-for : für
+severdighet : SehenswÃ¼rdigkeiten
+aktivitet : AktivitÃ¤t
+for : fÃ¼r
 kurslokale : Kursraum
 koferanselokale : Konferenzraum
 kontakt : Kontakt
@@ -26,13 +26,13 @@ fjell : Berg, Gebirge
 ringe : klingeln, anrufen
 ta : nehmen
 telefon : Telefon
-kunne : können
+kunne : kÃ¶nnen
 norsk : norwegisch
-så : so
+sÃ¥ : so
 mye : viel
 engelsk : englisch
 jo : doch
-naturligvis : selbstverständlich
+naturligvis : selbstverstÃ¤ndlich
 hjelpe : helfen
 ville : wollen
 gjerne : gern
@@ -49,30 +49,30 @@ spise : essen
 vegetarmat : vegetarisches Essen
 mat : Essen
 sikker : sicher
-senere : später
-ringe tilbake : zurückrufen
+senere : spÃ¤ter
+ringe tilbake : zurÃ¼ckrufen
 lage : machen, herstellen, kochen
 kjempe- : sehr
-forresten : übrigens
+forresten : Ã¼brigens
 lese : lesen
 mer : mehr
-se på : anschauen
+se pÃ¥ : anschauen
 sende : senden, schicken
 den : er, ihm, ihn, sie, ihr
 e-post : E-Mail
 adresse : Adresse
 stave : buchstabieren
 bindestrek : Bindestrich
-@(krølalfa) : at
+@(krÃ¸lalfa) : at
 virkelig : wirklich
 tysk : deutsch
 laerebok : Lehrbuch
 hjemme : zuhause
 bok : Buch
-på norsk : auf norwegisch
+pÃ¥ norsk : auf norwegisch
 ofte : oft
 ferie : Ferien
-på ferie : in den Ferien
+pÃ¥ ferie : in den Ferien
 Norge : Norwegen
 elg : Elch
 gang : Mal

@@ -1,60 +1,60 @@
-butikk : Laden, Geschäft
-gård : Hof, Bauernhof
-få : bekommen
+ï»¿butikk : Laden, GeschÃ¤ft
+gÃ¥rd : Hof, Bauernhof
+fÃ¥ : bekommen
 god : gut, lecker
 frisk : frisch
-grønnsak : Gemüse
-stor : groß
+grÃ¸nnsak : GemÃ¼se
+stor : groÃŸ
 potet : Kartoffel
 egg : Ei
-lykkelig : glücklich
-høne : Huhn
+lykkelig : glÃ¼cklich
+hÃ¸ne : Huhn
 noen : einige
 deilig : lecker, herrlich
-syltetøy : Konfitüre
+syltetÃ¸y : KonfitÃ¼re
 eplesong : Apfelsaison
-rød : rot
+rÃ¸d : rot
 eple : Apfel
 sulten : hungrig
-tørst : Durst
+tÃ¸rst : Durst
 drikke : trinken
 pris : Preis
 kanskje : vielleicht
-grønnsakssuppe : Gemüsesuppe
-varm : warm, heiß
-rundstykke : Brötchen
-stykke : Stück
+grÃ¸nnsakssuppe : GemÃ¼sesuppe
+varm : warm, heiÃŸ
+rundstykke : BrÃ¶tchen
+stykke : StÃ¼ck
 eplekake : Apfelkuchen
 kake : Kuchen
 krem : Schlagsahne
 kopp : Tasse
 hver : jede, jeder
-lørdag : Samstag
+lÃ¸rdag : Samstag
 alltid : immer
 dessert : Nachtisch
 fri : frei
 lage mat : kochen
 biff : Steak
-løk : Zwiebel
+lÃ¸k : Zwiebel
 potetgrateng : Kartoffelgratin
 steke : braten
 skjarere : schneiden
 gram : Gramm
 nok : genug
 to : zwei
-spørsmål : Frage
-dum : dumm, blöd
+spÃ¸rsmÃ¥l : Frage
+dum : dumm, blÃ¶d
 da : da, dann
 tyttebaer : Preiselbeere
 ris : Reis
 denne : dieser, diese
 disse : diese
 dette : dieses
-til : für
+til : fÃ¼r
 fire : vier
 to og en halv : zweieinhalb
 desiliter : Deziliter
-fløte : Sahne
+flÃ¸te : Sahne
 hvor mye : Wie viel
 koke : kochen, sieden
 la : lassen
@@ -63,26 +63,26 @@ av : von
 blande : mischen
 legge : legen
 lagvis : schichtweise
-bolle : Schüssel
+bolle : SchÃ¼ssel
 vanskelig : schwierig
 gi : geben
 pakke : Packung
 der : dort
 kniv : Messer
 se ut : aussehen
-gråte : weinen
+grÃ¥te : weinen
 rekke : strecken
 tulle : spinnen, Unsinn reden
-pleie å : pflegen zu, normalerweise tun
+pleie Ã¥ : pflegen zu, normalerweise tun
 time : Stunde
 siden : seit
-frokost : Frühstück
+frokost : FrÃ¼hstÃ¼ck
 hvor mange : Wie viele
 var : war, warst, waren, wart
 klokke : Uhr
 vanligvis : normalerweise
 bare : nur
-gjøre : machen, tun
+gjÃ¸re : machen, tun
 sende : reichen
 mett : satt
 mage : Bauch, Magen

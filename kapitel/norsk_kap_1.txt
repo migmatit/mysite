@@ -1,4 +1,4 @@
-Obs : Achtung
+ï»¿Obs : Achtung
 du : du
 er : bin, bist, ist, sind, seid
 vaere : sein
@@ -8,65 +8,65 @@ snakke : sprechen
 med : mit
 hverandre : einander
 ikke : nicht
-om : von, über
+om : von, Ã¼ber
 det : es, das
-hete : heißen
+hete : heiÃŸen
 dere : ihr, euch
 ha : haben
 en : ein
 ei : eine
 et : ein
 problem : problem
-løse : lösen
+lÃ¸se : lÃ¶sen
 sammen : zusammen
 gjest : Gast
-prioritet : Priorität
+prioritet : PrioritÃ¤t
 de : sie
 person : Person
 svare : antworten
-umulig : unmöglich
+umulig : unmÃ¶glich
 han : er
 eller : oder
 hun : sie
 alt : alles
-mulig : möglich
+mulig : mÃ¶glich
 jeg : ich
-prøve : probieren
-smile : lächeln
+prÃ¸ve : probieren
+smile : lÃ¤cheln
 till : an, zu, nach
 verden : Welt
 og : und
-tilbake : zurück
+tilbake : zurÃ¼ck
 tro : glauben
-gal : verrückt
+gal : verrÃ¼ckt
 velkommen : willkommen
 oss : uns
 ny : neu
 resepsjonist : Rezeptionist
-på : auf, in
+pÃ¥ : auf, in
 hotell : Hotel
 sjef : Chef
 hei : Hallo
 tusen : Tausend
 takk : Dank
 hvordan : wie
-gå : gehen
-bra : gut, schön
+gÃ¥ : gehen
+bra : gut, schÃ¶n
 bli : werden
 hyygelig : nett
-å : zu
+Ã¥ : zu
 jobbe : arbeiten
 dette : dies
-også : auch
+ogsÃ¥ : auch
 her : hier
-forklare : erklären
+forklare : erklÃ¤ren
 deg : dich, dir
 treffe : treffen
 kjenne : kennen
 ja : ja
 egentlig : eigentlich
 fra : von, aus
-nå : nun, jetzt
+nÃ¥ : nun, jetzt
 etter : nach
 lang : lang
 tid : Zeit
@@ -88,7 +88,7 @@ hva : was
 igjen : wieder
 hvor : wo
 komme : kommen
-kokk : Koch, Köchin
+kokk : Koch, KÃ¶chin
 ham : ihn, ihm
 skoletida : Schulzeit
 mene : meinen
