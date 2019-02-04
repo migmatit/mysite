@@ -25,6 +25,7 @@
 			var loesung = document.getElementById('versteckt').value.trim();
 			var antworteingabe = document.getElementById('antworteingabe');
 			antworteingabe.focus();
+			antworteingabe.addEventListener('keydown', returntaste);
 			
 			function eingabe_kontrolle() {
 				var eingegebene_vokabel = document.getElementById('antworteingabe').value.trim();
@@ -59,6 +60,13 @@
 				else {
 					die_form.action = '/';
 					die_form.submit();
+				}
+			}
+			
+			function returntaste(event) {
+				// Wenn return gedrueckt wurde, Eingabe kontrollieren
+				if (event.keyCode == 13) {
+					eingabe_kontrolle();
 				}
 			}
 		</script>
