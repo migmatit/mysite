@@ -1,0 +1,16 @@
+.float1 { 
+	float: left; 
+	width: 3em; 
+}
+
+.float2 { 
+	float: left; 
+	width: 30em;
+	font-size:1.5rem;
+}
+
+.large {
+	font-size: 0.6em;
+	line-height: 1;
+	margin-bottom: 1.5em;
+}
