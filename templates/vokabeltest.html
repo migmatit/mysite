@@ -1,74 +1,82 @@
 <!doctype html>
 <html>
-	<head>
-	</head>
-	<body>
-		<div id='uebersetzen_sie'>Übersetzen sie: {{norw}}</div>
-		<div id='antwort'>Antwort</div>
+<head>
+	<link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+	<div class="gross"> 
+		<div class="gross" id='uebersetzen_sie'>Übersetzen sie: {{norw}}</div>
+		<div class="gross" id='antwort'>Antwort</div>
 		<div>
-			<input type='text' id='antworteingabe' maxlength='100' autocomplete='off'/><br/>
+			<input class="large" type='text' id='antworteingabe' maxlength='100' autocomplete='off'/><br/>
 			<form action='' method='post' id='die_form'>
 				{% csrf_token %}
 				<input type='hidden' id='richtige_antworten' name='richtige_antworten' value='{{richtige_antworten}}'/>
-				<input type='button' id='button1' value='Eingabe' onclick='eingabe_kontrolle()'/>
+				<input class="large" type='button' id='button1' value='Kontrolle' onclick='eingabe_kontrolle()'/>
 			</form>
 		</div>
 		<div id='meldung'></div>
 		<input type='hidden' id='anzahl_der_ausgangsvokabeln' value='{{anzahl_der_ausgangsvokabeln}}'/>
 		<input type='hidden' id='versteckt' name='versteckt' value='{{deu}}'/>
 		<input type='hidden' id='anzahl_vokabeln' value='{{anzahl_vokabeln}}'/>
-		<script>
-			var anzahl_vokabeln = document.getElementById('anzahl_vokabeln').value;
-			var die_form = document.getElementById('die_form');
-			var richtige_antworten = document.getElementById('richtige_antworten').value;
-			var anzahl_der_ausgangsvokabeln = document.getElementById('anzahl_der_ausgangsvokabeln').value;
-			var loesung = document.getElementById('versteckt').value.trim();
-			var antworteingabe = document.getElementById('antworteingabe');
-			antworteingabe.focus();
-			antworteingabe.addEventListener('keydown', returntaste);
+		
+		<img src='/static/ford.jpg'/>
+		<div class="gross">
+			Norwegisch-Deutsch-Vokabeltrainer
+		</div>
+	</div>
+	<script>
+		var anzahl_vokabeln = document.getElementById('anzahl_vokabeln').value;
+		var die_form = document.getElementById('die_form');
+		var richtige_antworten = document.getElementById('richtige_antworten').value;
+		var anzahl_der_ausgangsvokabeln = document.getElementById('anzahl_der_ausgangsvokabeln').value;
+		var loesung = document.getElementById('versteckt').value.trim();
+		var antworteingabe = document.getElementById('antworteingabe');
+		antworteingabe.focus();
+		antworteingabe.addEventListener('keydown', returntaste);
+		
+		function eingabe_kontrolle() {
+			var eingegebene_vokabel = document.getElementById('antworteingabe').value.trim();
 			
-			function eingabe_kontrolle() {
-				var eingegebene_vokabel = document.getElementById('antworteingabe').value.trim();
-				
-				if (((eingegebene_vokabel == loesung) || 
-					(loesung.includes(eingegebene_vokabel)) || 
-					eingegebene_vokabel.includes(loesung)) &&
-					eingegebene_vokabel != "") { 
-						document.getElementById('richtige_antworten').value = parseInt(richtige_antworten) + 1;
-						document.getElementById('meldung').innerHTML = "Richtig! Es ist " + loesung + ".</br>" +
-																		"Sie haben " + 
-																		document.getElementById('richtige_antworten').value + 
-																		" von " + anzahl_der_ausgangsvokabeln + " richtig.";
-				}
-				else {
-					document.getElementById('meldung').innerHTML = "Falsch! Richtig ist " + loesung + ".</br>" +
+			if (((eingegebene_vokabel == loesung) || 
+				(loesung.includes(eingegebene_vokabel)) || 
+				eingegebene_vokabel.includes(loesung)) &&
+				eingegebene_vokabel != "") { 
+					document.getElementById('richtige_antworten').value = parseInt(richtige_antworten) + 1;
+					document.getElementById('meldung').innerHTML = "Richtig! Es ist " + loesung + ".</br>" +
 																	"Sie haben " + 
-																		document.getElementById('richtige_antworten').value + 
-																		" von " + anzahl_der_ausgangsvokabeln + " richtig.";
-				}
-				
-				
-				die_form.action = 'vokabeltest';
-				document.getElementById('button1').value = 'Nächste Vokabel';
-				document.getElementById('button1').onclick = naechste_vokabel;
+																	document.getElementById('richtige_antworten').value + 
+																	" von " + anzahl_der_ausgangsvokabeln + " richtig.";
+			}
+			else {
+				document.getElementById('meldung').innerHTML = "Falsch! Richtig ist " + loesung + ".</br>" +
+																"Sie haben " + 
+																	document.getElementById('richtige_antworten').value + 
+																	" von " + anzahl_der_ausgangsvokabeln + " richtig.";
 			}
 			
-			function naechste_vokabel() {
-				if (anzahl_vokabeln > 0) {
-					die_form.submit();
-				}
-				else {
-					die_form.action = '/';
-					die_form.submit();
-				}
-			}
 			
-			function returntaste(event) {
-				// Wenn return gedrueckt wurde, Eingabe kontrollieren
-				if (event.keyCode == 13) {
-					eingabe_kontrolle();
-				}
+			die_form.action = 'vokabeltest';
+			document.getElementById('button1').value = 'Nächste Vokabel';
+			document.getElementById('button1').onclick = naechste_vokabel;
+		}
+		
+		function naechste_vokabel() {
+			if (anzahl_vokabeln > 0) {
+				die_form.submit();
 			}
-		</script>
-	</body>
+			else {
+				die_form.action = '/';
+				die_form.submit();
+			}
+		}
+		
+		function returntaste(event) {
+			// Wenn return gedrueckt wurde, Eingabe kontrollieren
+			if (event.keyCode == 13) {
+				eingabe_kontrolle();
+			}
+		}
+	</script>
+</body>
 </html>
