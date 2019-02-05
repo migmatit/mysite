@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+</head>
+<body>
+<<<<<<< HEAD
+<div class="float2">
+	<img src="/static/ford.jpg"/>
+</div>
+<div class="float1">
+	<h4>Norwegisch-Deutsch-Vokabeltrainer</h4>
+=======
+<div>
+	<h4>Norwegisch-Deutsch-Vokabeltrainer</h1>
+>>>>>>> 6cb489bb4dd062b20833870798c74bfbc8e2e355
+	<form action="vokabeltest" method="post">
+		{% csrf_token %}
+		{% for i in kapitelnummern %}
+			<input type="checkbox" name="Kapitel {{i}}"/>
+			Kapitel: {{i}} <br/>
+		{% endfor %}
+		<input type="submit" value="senden"/>
+	</form>
+</div>
+</body>
+</html>
