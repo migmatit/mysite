@@ -11,18 +11,21 @@ def eingang(request):
 	kapitel_dict = Vokabel.objects.all().aggregate(Max('kapitel'))
 	anzahl_kapitel = kapitel_dict['kapitel__max']
 	kapitelnummern = []
+	abschlussmeldung = ""
 	for i in range(1, anzahl_kapitel + 2):
 		if i < anzahl_kapitel + 1:
 			kapitelnummern.append(str(i))
 		else:
 			kapitelnummern.append("alles")
-	
+		
+	if request.POST.get('ende') == 'ja':
+		abschlussmeldung = 'Sie hatten ' + str(request.POST['richtige_antworten']) + ' von ' + str(request.POST['alle']) + ' richtig.'
 	#im Pfad zu 'hallo.html' muss nicht der templates-Ordner
 	#angegeben werden; ist automatisch in settings verarbeitet
-	return render(request, 'eingang.html', {'kapitelnummern':kapitelnummern})
+	return render(request, 'eingang.html', {'kapitelnummern': kapitelnummern, \
+											'abschlussmeldung': abschlussmeldung})
 
 def vokabeltest(request):
-	print(request.POST)
 	auswahl = {}
 	
 	if 'restvokabeln' in request.session:

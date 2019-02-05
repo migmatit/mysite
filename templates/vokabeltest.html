@@ -12,12 +12,14 @@
 			<input class="but" type='text' id='antworteingabe' maxlength='100' autocomplete='off'/><br/>
 			<form action='' method='post' id='die_form'>
 				{% csrf_token %}
+				<input type='hidden' id='ende' name='ende' value='nein'/>
+				<input type='hidden' id='alle' name='alle' value='nein'/>
 				<input type='hidden' id='richtige_antworten' name='richtige_antworten' value='{{richtige_antworten}}'/>
+				<input type='hidden' id='anzahl_der_ausgangsvokabeln' value='{{anzahl_der_ausgangsvokabeln}}'/>
 				<input class="but" type='button' id='button1' value='Kontrolle' onclick='eingabe_kontrolle()'/>
 			</form>
 		</div>
 		<div id='meldung'></div>
-		<input type='hidden' id='anzahl_der_ausgangsvokabeln' value='{{anzahl_der_ausgangsvokabeln}}'/>
 		<input type='hidden' id='versteckt' name='versteckt' value='{{deu}}'/>
 		<input type='hidden' id='anzahl_vokabeln' value='{{anzahl_vokabeln}}'/>
 		
@@ -47,13 +49,13 @@
 					document.getElementById('meldung').innerHTML = "Richtig! Es ist " + loesung + ".</br>" +
 																	"Sie haben " + 
 																	document.getElementById('richtige_antworten').value + 
-																	" von " + anzahl_der_ausgangsvokabeln + " richtig.";
+																	" von " + document.getElementById('anzahl_der_ausgangsvokabeln').value + " richtig.";
 			}
 			else {
 				document.getElementById('meldung').innerHTML = "Falsch! Richtig ist " + loesung + ".</br>" +
 																"Sie haben " + 
 																	document.getElementById('richtige_antworten').value + 
-																	" von " + anzahl_der_ausgangsvokabeln + " richtig.";
+																	" von " + document.getElementById('anzahl_der_ausgangsvokabeln').value + " richtig.";
 			}
 			
 			
@@ -68,6 +70,8 @@
 			}
 			else {
 				die_form.action = '/';
+				document.getElementById('ende').value = 'ja'
+				document.getElementById('alle').value = document.getElementById('anzahl_der_ausgangsvokabeln').value
 				die_form.submit();
 			}
 		}
