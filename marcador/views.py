@@ -43,18 +43,21 @@ def vokabeltest(request):
 					aufteilen = line.split(" ")
 					ein_kapitel = Vokabel.objects.filter(kapitel=aufteilen[1])
 					for zeile in ein_kapitel:
-						auswahl[zeile.norwegisch] = zeile.deutsch
+						if request.POST['uebersetzung'] == 'norw_deu':
+							auswahl[zeile.norwegisch] = zeile.deutsch
+						else:
+							auswahl[zeile.deutsch] = zeile.norwegisch
 		request.session['anzahl_der_ausgangsvokabeln'] = len(auswahl)
 		request.session['richtige_antworten'] = 0
 		
 	anzahl_der_ausgangsvokabeln = request.session['anzahl_der_ausgangsvokabeln']
-	norw, deu = random.choice(list(auswahl.items()))
-	del auswahl[norw]
+	wort1, wort2 = random.choice(list(auswahl.items()))
+	del auswahl[wort1]
 	anzahl_vokabeln = len(auswahl)
 	request.session['restvokabeln'] = auswahl
 	
-	return render(request, 'vokabeltest.html', {'norw':norw, \
-												'deu':deu, \
+	return render(request, 'vokabeltest.html', {'wort1':wort1, \
+												'wort2':wort2, \
 												'anzahl_vokabeln':anzahl_vokabeln, \
 												'anzahl_der_ausgangsvokabeln':anzahl_der_ausgangsvokabeln, \
 												'richtige_antworten':request.session['richtige_antworten']})

@@ -12,15 +12,28 @@
 <div>
 	
 </div>
-<div class="float2">
-	<h4>Norwegisch-Deutsch-Vokabeltrainer</h4>
+<div  class="float2">
+	<h2>Norwegisch-Deutsch-Vokabeltrainer</h2>
 	<form action="vokabeltest" method="post">
 		{% csrf_token %}
-		{% for i in kapitelnummern %}
-			<input type="checkbox" name="Kapitel {{i}}"/>
-			Kapitel: {{i}} <br/>
-		{% endfor %}
-		<input class='but' type="submit" value="senden"/>
+		<div>
+			{% for i in kapitelnummern %}
+				<input type="checkbox" name="Kapitel {{i}}"/>
+				Kapitel: {{i}} <br/>
+			{% endfor %}
+			</p>
+			<fieldset class="feld">
+				<legend>Übersetzung</legend>
+				<input type="radio" id="norw_deu" name="uebersetzung" value="norw_deu" checked>
+					Norwegisch-Deutsch</br>
+				</input>
+				<input type="radio" id="deu_norw" name="uebersetzung" value="deu_norw">
+					Deutsch-Norwegisch
+				</input>
+			</fieldset>
+			</p>
+			<input class='but' type="submit" value="senden"/>
+		</div>
 	</form>
 	<div>
 		{{abschlussmeldung}}
