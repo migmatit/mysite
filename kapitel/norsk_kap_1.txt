@@ -1,7 +1,7 @@
-﻿Obs : Achtung
+Obs : Achtung
 du : du
 er : bin, bist, ist, sind, seid
-vaere : sein
+være : sein
 viktig : wichtig
 vi : wir
 snakke : sprechen

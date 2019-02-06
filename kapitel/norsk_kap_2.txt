@@ -1,8 +1,8 @@
-﻿hjemmeside : homepage
+hjemmeside : homepage
 sjarm : Charme
 midt : mitten
 gågate : Fußgängerzone
-naerhet : Nähe
+nærhet : Nähe
 tog : Zug
 buss : Bus
 restaurant : Restaurant
@@ -66,7 +66,7 @@ bindestrek : Bindestrich
 @(krølalfa) : at
 virkelig : wirklich
 tysk : deutsch
-laerebok : Lehrbuch
+lærebok : Lehrbuch
 hjemme : zuhause
 bok : Buch
 på norsk : auf norwegisch

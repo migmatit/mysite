@@ -9,7 +9,19 @@
 		<div id='uebersetzen_sie'>Übersetzen Sie: {{wort1}}</div>
 		<div id='antwort'>Antwort</div>
 		<div>
-			<input class="but" type='text' id='antworteingabe' maxlength='100' autocomplete='off'/><br/>
+			{% if uebersetzung == 'deu_norw' %}
+				<input type='button' id='norw_AE' value='&AElig;' onclick='norw_zeichen(this)'/>
+				<input type='button' id='norw_OE' value='&Oslash;'onclick='norw_zeichen(this)'/>
+				<input type='button' id='norw_AO' value='&Aring;' onclick='norw_zeichen(this)'/>
+			{% endif %}
+			<input class="but" type='text' id='antworteingabe' maxlength='100' autocomplete='off'/>
+			{% if uebersetzung == 'deu_norw' %}
+				<input type='button' id='norw_ae' value='&aelig;' onclick='norw_zeichen(this)'/>
+				<input type='button' id='norw_oe' value='&oslash;' onclick='norw_zeichen(this)'/>
+				<input type='button' id='norw_ao' value='&aring;' onclick='norw_zeichen(this)'/>
+			{% endif %}
+			<br/>
+			
 			<form action='' method='post' id='die_form'>
 				{% csrf_token %}
 				<input type='hidden' id='ende' name='ende' value='nein'/>
@@ -41,10 +53,7 @@
 		function eingabe_kontrolle() {
 			var eingegebene_vokabel = document.getElementById('antworteingabe').value.trim();
 			
-			if (((eingegebene_vokabel == loesung) || 
-				(loesung.includes(eingegebene_vokabel)) || 
-				eingegebene_vokabel.includes(loesung)) &&
-				eingegebene_vokabel != "") { 
+			if (eingegebene_vokabel == loesung) { 
 					document.getElementById('richtige_antworten').value = parseInt(richtige_antworten) + 1;
 					document.getElementById('meldung').innerHTML = "Richtig! Es ist " + loesung + ".</br>" +
 																	"Sie haben " + 
@@ -81,6 +90,11 @@
 			if (event.keyCode == 13) {
 				eingabe_kontrolle();
 			}
+		}
+		
+		function norw_zeichen(norw_but) {
+			antworteingabe.value = antworteingabe.value + norw_but.value;
+			antworteingabe.focus();
 		}
 	</script>
 </body>

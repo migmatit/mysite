@@ -1,2 +1,3 @@
-﻿postkort : Postkarte
+postkort : Postkarte
 kort : Karte
+kjøpe:kaufen

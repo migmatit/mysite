@@ -1,4 +1,4 @@
-﻿butikk : Laden, Geschäft
+butikk : Laden, Geschäft
 gård : Hof, Bauernhof
 få : bekommen
 god : gut, lecker
@@ -45,7 +45,7 @@ to : zwei
 spørsmål : Frage
 dum : dumm, blöd
 da : da, dann
-tyttebaer : Preiselbeere
+tyttebær : Preiselbeere
 ris : Reis
 denne : dieser, diese
 disse : diese
