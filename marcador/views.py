@@ -27,7 +27,6 @@ def eingang(request):
 
 def vokabeltest(request):
 	auswahl = {}
-	uebersetzung = 'norw_deu'
 	
 	if 'restvokabeln' in request.session:
 		auswahl = request.session['restvokabeln']
@@ -37,7 +36,12 @@ def vokabeltest(request):
 		if 'Kapitel alles' in request.POST:
 			alles = Vokabel.objects.all()
 			for zeile in alles:
-				auswahl[zeile.norwegisch] = zeile.deutsch
+				if request.POST['uebersetzung'] == 'norw_deu':
+					auswahl[zeile.norwegisch] = zeile.deutsch
+					request.session['uebersetzung'] = 'norw_deu'
+				else:
+					auswahl[zeile.deutsch] = zeile.norwegisch
+					request.session['uebersetzung'] = 'deu_norw'
 		else:
 			for line in request.POST:
 				if 'Kapitel' in line:
@@ -46,15 +50,15 @@ def vokabeltest(request):
 					for zeile in ein_kapitel:
 						if request.POST['uebersetzung'] == 'norw_deu':
 							auswahl[zeile.norwegisch] = zeile.deutsch
+							request.session['uebersetzung'] = 'norw_deu'
 						else:
 							auswahl[zeile.deutsch] = zeile.norwegisch
-							uebersetzung = 'deu_norw'
 							request.session['uebersetzung'] = 'deu_norw'
 		request.session['anzahl_der_ausgangsvokabeln'] = len(auswahl)
 		request.session['richtige_antworten'] = 0
 	
-	if request.session['uebersetzung'] == 'deu_norw':
-		uebersetzung = 'deu_norw'
+	# if request.session['uebersetzung'] == 'deu_norw':
+		# uebersetzung = 'deu_norw'
 	anzahl_der_ausgangsvokabeln = request.session['anzahl_der_ausgangsvokabeln']
 	wort1, wort2 = random.choice(list(auswahl.items()))
 	del auswahl[wort1]
@@ -66,4 +70,4 @@ def vokabeltest(request):
 												'anzahl_vokabeln':anzahl_vokabeln, \
 												'anzahl_der_ausgangsvokabeln':anzahl_der_ausgangsvokabeln, \
 												'richtige_antworten':request.session['richtige_antworten'],
-												'uebersetzung':uebersetzung})
+												'uebersetzung':request.session['uebersetzung']})

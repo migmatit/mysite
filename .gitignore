@@ -3,4 +3,5 @@
 __pycache__
 myvenv
 db.sqlite3
+daten_erzeugen2.py
 .DS_Store

@@ -14,7 +14,7 @@
 </div>
 <div  class="float2">
 	<h2>Norwegisch-Deutsch-Vokabeltrainer</h2>
-	<form action="vokabeltest" method="post">
+	<form action="vokabeltest" id="die_form" method="post">
 		{% csrf_token %}
 		<div>
 			{% for i in kapitelnummern %}
@@ -32,12 +32,33 @@
 				</input>
 			</fieldset>
 			</p>
-			<input class='but' type="submit" value="senden"/>
 		</div>
 	</form>
+	<input class='but' type="submit" value="senden" onclick='auswahl_pruefen()'/>
 	<div>
 		{{abschlussmeldung}}
 	</div>
 </div>
+<script>
+	function auswahl_pruefen() {
+		ausgewaehlt = false;
+		die_inputs = document.getElementsByTagName('input');
+		for (var i = 0; i < die_inputs.length; i++) {
+			if (die_inputs[i].type === 'checkbox') {
+				if(die_inputs[i].checked){
+					ausgewaehlt = true;
+					break;
+				}
+			}
+		}
+		
+		if (ausgewaehlt) {
+			document.getElementById('die_form').submit();
+		}
+		else {
+			alert('Sie haben kein Kapitel ausgewählt');
+		}
+	}
+</script>
 </body>
 </html>

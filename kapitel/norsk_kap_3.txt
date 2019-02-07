@@ -1,4 +1,4 @@
-butikk : Laden, Geschäft
+﻿butikk : Laden, Geschäft
 gård : Hof, Bauernhof
 få : bekommen
 god : gut, lecker

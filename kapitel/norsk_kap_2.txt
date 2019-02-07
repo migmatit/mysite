@@ -1,4 +1,4 @@
-hjemmeside : homepage
+﻿hjemmeside : homepage
 sjarm : Charme
 midt : mitten
 gågate : Fußgängerzone
