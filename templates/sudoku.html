@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Sudoku</title>
+	<link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+	<div class="mittig">
+		Sudoku<br/>
+		<form acttion='sudoku' method='post' id='form_sudoku'>
+			{% csrf_token %}
+			{% for feldnr in sudokufeld %}
+				<input type='text' id='feld_{{feldnr.0}}' name='feld_{{feldnr.0}}' value='{{feldnr.1}}'
+						style="width:1%;height:1%;text-align:center;font-size:50%;
+						{% if forloop.counter in belegte_felder %}
+							background-color:orange;
+						{% endif %}
+						"
+						maxlength='1' autocomplete='off'/>
+				{% if forloop.counter|divisibleby:"9" %}
+					<br/>
+				{% endif %}
+			{% endfor %}
+			<input type='hidden' id='hidden1' name='hidden1' value='{{button_belegung}}'/>
+		</form>
+		<input class="but" type='button' id='button1' name='button1' value='{{button_belegung}}' onclick='sudoku_abschicken()'/>
+	</div>
+	<div style="text-align:center">
+		{{fehlermeldung}}
+	</div>
+	<script>
+		function sudoku_abschicken() {
+			var inputs = document.getElementsByTagName('input');
+			//inputs muss erst in Array umgewandelt werden
+			var inputList = Array.prototype.slice.call(inputs);
+			var legitime_werte = ["1", "2", "3", "4", "5", "6", "7", "8", "9", ""]
+			var ok = true;
+			for(var i = 0; i < inputList.length; i++) {
+				if (inputList[i].type == 'text') {
+					if (!legitime_werte.includes(inputList[i].value)) {
+						ok = false;
+						alert("Eingaben müssen zwischen 1 und 9 sein");
+						break;
+					}
+				}
+			}
+			if(ok) {
+				document.getElementById('form_sudoku').submit();
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+</head>
+<body>
+	<div  class="float2">
+		<h2>Willkommen</h2>
+		<form action="" id="index_form" method="post">
+			{% csrf_token %}
+			<div>
+				<fieldset class="index_feld">
+					<legend>Bitte auswälen</legend>
+					<input type="radio" id="vokabeltrainer" 
+							name="index_auswahl" value="vok_trainer" checked>
+						Vokabeltrainer</br>
+					</input>
+					<input type="radio" id="sudoku" 
+							name="index_auswahl" value="sudoku">
+						Sudoku
+					</input>
+				</fieldset>
+			</div>
+		</form>
+		<input class='but' type="button" value="senden" onclick='weiterleiten(this)'/>
+	</div>
+	<script>
+		function weiterleiten(button1) {
+			if(document.getElementById('vokabeltrainer').checked) {
+				document.getElementById('index_form').action = 'eingang';
+			}
+			else {
+				document.getElementById('index_form').action = 'sudoku';
+			}
+			document.getElementById('index_form').submit();
+		}
+	</script>
+</body>
+</html>

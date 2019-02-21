@@ -20,4 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 	#der Aufruf wird an die url.py im Ordner von marcador weitergeleitety
 	path('', include('marcador.urls')),
+	path('eingang', include('marcador.urls')),
+	path('sudoku', include('marcador.urls')),
 ]

@@ -3,8 +3,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-	#in view-Datei ist die Funktion 'hallo', sie bekommt
-	# den namen hallo
-	path('', views.eingang, name='eingang'),
-	path('vokabeltest', views.vokabeltest, name='vokabeltest')
+	path('', views.index, name='index'),
+	path('eingang', views.eingang, name='eingang'),
+	path('vokabeltest', views.vokabeltest, name='vokabeltest'),
+	path('sudoku', views.sudoku, name='sudoku'),
 ]

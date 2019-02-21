@@ -2,8 +2,13 @@ from django.shortcuts import render
 from django.db.models import Max
 from .models import Vokabel
 import random
+import json
 
 # Create your views here.
+
+def index(request):
+	
+	return render(request, 'index.html', {})
 
 def eingang(request):
 	#Zum Testen muß die Session-DB gelöscht werden!!!
@@ -71,3 +76,58 @@ def vokabeltest(request):
 												'anzahl_der_ausgangsvokabeln':anzahl_der_ausgangsvokabeln, \
 												'richtige_antworten':request.session['richtige_antworten'],
 												'uebersetzung':request.session['uebersetzung']})
+
+def sudoku(request):
+	rueckgabe = []
+	fehler = True
+	fehlermeldung = "Geben Sie Zahlen (1-9) ein, damit es ein Sudoku werden kann."
+	button_belegung = "Sudoku abschicken"
+	belegte_felder = []
+
+	if 'feld_1' in request.POST:
+		if request.POST['hidden1'] == 'Sudoku abschicken':
+			import sudoku.sudoku as sudoku
+			d = {}
+			die_gruppen = []
+			felder_mit_wert = {}
+			zaehler = 1
+			
+			for i in range(1, 82):
+				if zaehler > 9:
+					zaehler = 1
+				zeile = (i // 9) + 1
+				spalte = zaehler
+				wert = request.POST['feld_' + str(i)]
+				if wert != '':
+					felder_mit_wert[(zeile, spalte)] = int(wert)
+					belegte_felder.append((zeile - 1) * 9 + spalte)
+				zaehler = zaehler + 1
+			
+			sudoku.erzeuge_ort_wert(1, 9, d)
+			sudoku.belege_sudoku_mit_werten(d, felder_mit_wert)
+			sudoku.erzeuge_gruppen(1, 9, die_gruppen)
+			
+			if sudoku.zulaessige_zahlen(d, die_gruppen):
+				sudoku.loese_sudoku([0], d.copy(), die_gruppen, rueckgabe)
+				button_belegung = 'Nächstes Sudoku'
+				fehlermeldung = ""
+			else:
+				fehlermeldung = 'Sie haben zwei gleiche Zahlen in einer Reihe, Zeile oder Quadranten gesetzt!'
+				belegte_felder = []
+			#Kommt nochmal der request von der gelösten Webseite mit den Werten
+			#wird in sudoku.py loese_sudoku() [0] auf [1] gesetzt, da ja gelöst.
+			#rueckgabe ist dann eine leere Liste, also ist bei der for-Schleife
+			#len() gleich Null und die Anfangsseite vom Sudokufeld wird gezeigt.
+	sudokufeld = []
+	for i in range(1, 82):
+		#Tupel werden erzeugt; sind leichter mit Django-Tag auszulesen 
+		#(.-Operator: feldnr.0)
+		if len(rueckgabe) > 0:
+			sudokufeld.append((i, rueckgabe[i - 1]))
+		else:
+			sudokufeld.append((i, ''))
+	
+	return render(request, 'sudoku.html', {'sudokufeld': sudokufeld, 
+											'fehlermeldung': fehlermeldung, 
+											'button_belegung': button_belegung,
+											'belegte_felder': belegte_felder})
