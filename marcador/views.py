@@ -92,15 +92,17 @@ def sudoku(request):
 			felder_mit_wert = {}
 			zaehler = 1
 			
-			for i in range(1, 82):
+			for i in range(1, 82):		
 				if zaehler > 9:
 					zaehler = 1
-				zeile = (i // 9) + 1
+				zeile = (i // 10) + 1
 				spalte = zaehler
 				wert = request.POST['feld_' + str(i)]
 				if wert != '':
 					felder_mit_wert[(zeile, spalte)] = int(wert)
+					
 					belegte_felder.append((zeile - 1) * 9 + spalte)
+				print(zeile, i, zeile, spalte)
 				zaehler = zaehler + 1
 			
 			sudoku.erzeuge_ort_wert(1, 9, d)
