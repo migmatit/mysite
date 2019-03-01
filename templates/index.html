@@ -19,6 +19,10 @@
 							name="index_auswahl" value="sudoku">
 						Sudoku
 					</input>
+					<input type="radio" id="zahlen_erkennen" 
+							name="index_auswahl" value="zahlen_erkennen">
+						Zahlen erkennen
+					</input>
 				</fieldset>
 			</div>
 		</form>
@@ -29,8 +33,11 @@
 			if(document.getElementById('vokabeltrainer').checked) {
 				document.getElementById('index_form').action = 'eingang';
 			}
-			else {
+			if(document.getElementById('sudoku').checked) {
 				document.getElementById('index_form').action = 'sudoku';
+			}
+			if(document.getElementById('zahlen_erkennen').checked) {
+				document.getElementById('index_form').action = 'zahlen_erkennen';
 			}
 			document.getElementById('index_form').submit();
 		}
