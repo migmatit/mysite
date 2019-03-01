@@ -7,9 +7,10 @@ def akt_funk(wert):
     return 1 / (1 + math.e ** (-wert))
 
 def erkenne_zahl(pixel_liste):
-	datei = open("./Gewichte/gew_hid_out.gew", "rb")
+	pfad_zu_gewichte = os.path.abspath(".")	
+	datei = open(pfad_zu_gewichte + os.path.sep + "Gewichte" + os.path.sep + "gew_hid_out.gew", "rb")
 	gew_hid_out = pickle.load(datei)
-	datei = open("./Gewichte/gew_in_hid.gew", "rb")
+	datei = open(pfad_zu_gewichte + os.path.sep + "Gewichte" + os.path.sep + "gew_in_hid.gew", "rb")
 	gew_in_hid = pickle.load(datei)
 
 	in_neu = []
