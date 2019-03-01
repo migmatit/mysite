@@ -22,4 +22,5 @@ urlpatterns = [
 	path('', include('marcador.urls')),
 	path('eingang', include('marcador.urls')),
 	path('sudoku', include('marcador.urls')),
+	path('zahlen_erkennen', include('marcador.urls')),
 ]

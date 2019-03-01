@@ -138,7 +138,8 @@ def loese_sudoku(geloest, tabelle, die_gruppen, rueckgabe):
 		moegliche_werte = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 		freies_feld = gib_erstes_freies_feld(tabelle)
 		#Schnittmenge bilden
-		freie_werte = set(moegliche_werte) - set(gib_zahlen_meiner_gruppen(1, 9, freies_feld, tabelle, die_gruppen))
+		freie_werte = set(moegliche_werte) - \
+						set(gib_zahlen_meiner_gruppen(1, 9, freies_feld, tabelle, die_gruppen))
 		ein_freier_wert = 0
 		
 		for wert in freie_werte:

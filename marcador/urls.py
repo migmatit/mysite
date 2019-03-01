@@ -7,4 +7,5 @@ urlpatterns = [
 	path('eingang', views.eingang, name='eingang'),
 	path('vokabeltest', views.vokabeltest, name='vokabeltest'),
 	path('sudoku', views.sudoku, name='sudoku'),
+	path('zahlen_erkennen', views.zahlen_erkennen, name='zahlen_erkennen'),
 ]

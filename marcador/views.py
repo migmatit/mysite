@@ -25,7 +25,7 @@ def eingang(request):
 		
 	if request.POST.get('ende') == 'ja':
 		abschlussmeldung = 'Sie hatten ' + str(request.POST['richtige_antworten']) + ' von ' + str(request.POST['alle']) + ' richtig.'
-	#im Pfad zu 'hallo.html' muss nicht der templates-Ordner
+	#im Pfad zu 'eingang.html' muss nicht der templates-Ordner
 	#angegeben werden; ist automatisch in settings verarbeitet
 	return render(request, 'eingang.html', {'kapitelnummern': kapitelnummern, \
 											'abschlussmeldung': abschlussmeldung})
@@ -102,7 +102,6 @@ def sudoku(request):
 					felder_mit_wert[(zeile, spalte)] = int(wert)
 					
 					belegte_felder.append((zeile - 1) * 9 + spalte)
-				print(zeile, i, zeile, spalte)
 				zaehler = zaehler + 1
 			
 			sudoku.erzeuge_ort_wert(1, 9, d)
@@ -114,7 +113,8 @@ def sudoku(request):
 				button_belegung = 'Nächstes Sudoku'
 				fehlermeldung = ""
 			else:
-				fehlermeldung = 'Sie haben zwei gleiche Zahlen in einer Reihe, Zeile oder Quadranten gesetzt!'
+				fehlermeldung = 'Sie haben zwei gleiche Zahlen in einer Reihe, \
+									Zeile oder Quadranten gesetzt!'
 				belegte_felder = []
 			#Kommt nochmal der request von der gelösten Webseite mit den Werten
 			#wird in sudoku.py loese_sudoku() [0] auf [1] gesetzt, da ja gelöst.
@@ -133,3 +133,17 @@ def sudoku(request):
 											'fehlermeldung': fehlermeldung, 
 											'button_belegung': button_belegung,
 											'belegte_felder': belegte_felder})
+
+def zahlen_erkennen(request):
+	antwort = ''
+	if 'pixel' in request.POST:
+		import zahlen_erkennen as ze
+		alle_pixel = gib_alle_pixel(request)
+		antwort = antwort + str(ze.erkenne_zahl(alle_pixel))
+	
+	return render(request, 'zahlen_erkennen.html', {'antwort': antwort})
+	
+def gib_alle_pixel(request):
+	json_pixel = request.POST['pixel']
+	die_pixel = json.loads(json_pixel)
+	return (die_pixel['pixel'])

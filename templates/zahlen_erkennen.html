@@ -1,0 +1,59 @@
+<html>
+	<head>
+	</head>
+	<body style = "background-color:gray">
+		<canvas id = "malflaeche" 
+				width = "28px" 
+				height = "28px"
+				onmousemove = "maus_bewegt(event)"
+				style = "background-color:white;">
+		</canvas>
+		Zeichnen Sie eine 0 oder 1 in das weiße Quadrat
+		<div>
+			{{antwort}}
+		</div>
+		<form action = "zahlen_erkennen" method='post' id='form_zahlen_erkennen'>
+			{% csrf_token %}
+			<input type = "hidden" id = "pixel" name = "pixel"/>
+		</form>
+		<input type = "button" name = "but1" value = "absenden" onclick = "pixel_in_canvas()"/>
+	</body>
+	<script>
+		var button_gedrueckt = false;
+		var el = document.getElementById('malflaeche');
+		var ctx = el.getContext('2d');
+		document.onmousedown = function() { button_gedrueckt = true; }
+		document.onmouseup   = function() { button_gedrueckt = false; } 
+		
+		function maus_bewegt(event) {
+			if(button_gedrueckt) {
+				//var x = event.clientX - 10;
+				//var y = event.clientY - 10;
+				//ctx.fillStyle = "black";
+				//ctx.fillRect(x,y,2,2);
+				ctx.lineTo(event.clientX - 10, event.clientY - 10);
+				ctx.stroke();
+			}
+		}
+		
+		function pixel_in_canvas() {
+			var imageData = ctx.getImageData( 0, 0, 28, 28 );
+			var pixel = [[1.0]]
+			var data = imageData.data;
+			var zaehler = 1;
+			for ( var i = 3; i < data.length; i += 4 ) {
+				if(data[i] > 0) {
+					pixel[zaehler] = [0.9];
+				}
+				else {
+					pixel[zaehler] = [0.1];
+				}
+				zaehler = zaehler + 1;
+			}
+			var json_objekt = {'pixel': pixel};
+			obj = JSON.stringify(json_objekt);
+			document.getElementById("pixel").value = obj;
+			document.getElementById("form_zahlen_erkennen").submit();
+		}
+	</script>
+</html>
